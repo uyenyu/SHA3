@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Voting Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 500px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            padding: 32px 24px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            margin-top: 24px;
+        }
+        .option {
+            display: flex;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+        .option input[type="radio"] {
+            margin-right: 12px;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        .message {
+            margin-top: 20px;
+            text-align: center;
+            color: #28a745;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Vote for Your Favorite Option</h1>
+        <form id="voteForm">
+            <div class="option">
+                <input type="radio" id="option1" name="vote" value="Option 1" required>
+                <label for="option1">Option 1</label>
+            </div>
+            <div class="option">
+                <input type="radio" id="option2" name="vote" value="Option 2">
+                <label for="option2">Option 2</label>
+            </div>
+            <div class="option">
+                <input type="radio" id="option3" name="vote" value="Option 3">
+                <label for="option3">Option 3</label>
+            </div>
+            <button type="submit">Submit Vote</button>
+        </form>
+        <div class="message" id="message"></div>
+    </div>
+    <script>
+        document.getElementById('voteForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const selected = document.querySelector('input[name="vote"]:checked');
+            if (selected) {
+                document.getElementById('message').textContent = `Thank you for voting for "${selected.value}"!`;
+            }
+        });
+    </script>
+</body>
+</html>
