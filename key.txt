@@ -1,0 +1,87 @@
+Blockchain server
+9967b6a3b003a4527ae4b8bb73535f3489aba827e3179f5a69b0507649e53330
+Mail server
+tuuyenak43@gmail.com
+uztx evhb oaps rftk
+
+
+PROVIDER_URL = "https://eth-sepolia.g.alchemy.com/v2/nS02cVKqcLkfeaeNtkjz2" 
+CONTRACT_ADDRESS = "0x7fb3da7C50697FB2318f7DBE15690c5eB717b249" 
+CONTRACT_ABI = """
+[
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "voteHash",
+				"type": "string"
+			},
+			{
+				"indexed": false,
+				"internalType": "uint256",
+				"name": "timestamp",
+				"type": "uint256"
+			},
+			{
+				"indexed": false,
+				"internalType": "address",
+				"name": "sender",
+				"type": "address"
+			}
+		],
+		"name": "VoteRecorded",
+		"type": "event"
+	},
+	{
+		"inputs": [],
+		"name": "getVoteCount",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "string",
+				"name": "_voteHash",
+				"type": "string"
+			}
+		],
+		"name": "storeVote",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "voteHashes",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
+""" # Đây là ABI của Hợp đồng trên
+
+# --- CẤU HÌNH VÍ CỦA MÁY CHỦ ---
+SERVER_WALLET_ADDRESS = "0x609817767fba18ccf8114d8098420ad0f1209aaa" # Địa chỉ ví của máy chủ (tài khoản Ganache 0)
+SERVER_WALLET_PRIVATE_KEY = os.getenv("SERVER_WALLET_KEY") # Chạy: set SERVER_WALLET_KEY=...
